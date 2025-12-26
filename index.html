@@ -3,378 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>施芊妤｜Personal Resume</title>
+  <title>施芊妤 | 個人簡歷</title>
 
   <style>
     :root{
       --bg: #f6fbf8;
       --card: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --line: #d7efe2;
-      --green: #1f9d63;
-      --green2:#22c55e;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --text: #153a2a;
+      --muted: #4d6b5c;
+      --line: #d8eadf;
+      --green: #1f7a5a;
+      --green2: #2aa673;
+      --shadow: 0 10px 30px rgba(22, 74, 50, .10);
       --radius: 16px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
     body{
       margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(180deg, var(--bg), #ffffff);
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans TC", sans-serif;
       color: var(--text);
-      line-height: 1.7;
+      background: radial-gradient(1200px 600px at 20% -10%, #dff4ea 0%, rgba(223,244,234,0) 55%),
+                  radial-gradient(900px 500px at 90% 0%, #e8f7ef 0%, rgba(232,247,239,0) 60%),
+                  var(--bg);
     }
 
-    a{ color: inherit; text-decoration: none; }
-    .container{
-      width: min(1100px, 92vw);
-      margin: 0 auto;
-      padding: 28px 0 60px;
-    }
+    a{ color: var(--green); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 22px 16px 60px; }
 
     /* Top bar */
     .topbar{
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(246, 251, 248, 0.75);
+      z-index: 20;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      background: rgba(246, 251, 248, .72);
+      border-bottom: 1px solid rgba(216, 234, 223, .85);
     }
     .topbar-inner{
-      width: min(1100px, 92vw);
+      max-width: 980px;
       margin: 0 auto;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0;
-      gap: 14px;
+      gap: 10px;
     }
     .brand{
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display:flex; align-items:center; gap:10px;
       font-weight: 800;
-      letter-spacing: .5px;
+      letter-spacing: .3px;
     }
-    .brand-dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 6px rgba(31,157,99,.12);
+    .dot{
+      width: 12px; height: 12px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green2), var(--green));
+      box-shadow: 0 0 0 6px rgba(42,166,115,.12);
     }
-    nav{
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .nav{
+      display:flex; gap: 12px; flex-wrap: wrap;
       justify-content: flex-end;
-    }
-    nav a{
       font-size: 14px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 10px;
-      transition: transform .15s ease, background .15s ease, color .15s ease;
     }
-    nav a:hover{
-      background: rgba(31,157,99,.10);
-      color: var(--text);
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .nav a:hover{
+      background: rgba(31,122,90,.10);
       transform: translateY(-1px);
+      text-decoration: none;
     }
 
     /* Hero */
     .hero{
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
       margin-top: 18px;
-    }
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       padding: 22px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.75));
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(216, 234, 223, .9);
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      align-items: center;
     }
-    .hero h1{
-      margin: 0 0 6px;
-      font-size: clamp(24px, 3.2vw, 36px);
-      line-height: 1.2;
+    .avatar{
+      width: 140px; height: 140px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(216,234,223,.9);
+      box-shadow: 0 10px 25px rgba(22,74,50,.10);
+      background: #fff;
     }
+    h1{ margin: 0 0 6px; font-size: 28px; }
     .subtitle{
       margin: 0 0 14px;
       color: var(--muted);
+      line-height: 1.6;
     }
-    .badges{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
+    .chips{ display:flex; flex-wrap: wrap; gap: 10px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(31,122,90,.08);
+      border: 1px solid rgba(31,122,90,.12);
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .chip:hover{
+      background: rgba(31,122,90,.12);
+      transform: translateY(-1px);
+    }
+    .chip b{ font-weight: 700; }
+    .chip .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+
+    /* Section */
+    section{ margin-top: 22px; }
+    .card{
+      background: var(--card);
+      border: 1px solid rgba(216, 234, 223, .9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .section-title{
+      margin: 0 0 12px;
+      font-size: 20px;
+      display:flex; align-items:center; gap:10px;
     }
     .badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
+      font-size: 12px;
+      padding: 5px 10px;
       border-radius: 999px;
-      font-size: 13px;
-      color: #0b3b26;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.25);
-    }
-    .badge strong{ color: #064e3b; }
-
-    .profile{
-      display: grid;
-      gap: 12px;
-      align-content: start;
-    }
-    .avatar{
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      border-radius: 18px;
-      object-fit: cover;
-      border: 1px solid var(--line);
-      background: #eaf7f0;
-    }
-    .contact{
-      display: grid;
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .contact a{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-    .contact a:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
-      background: rgba(31,157,99,.06);
-      color: var(--text);
-    }
-    .contact small{ color: var(--muted); }
-
-    /* Sections */
-    section{ margin-top: 22px; scroll-margin-top: 80px; }
-    .section-title{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    .section-title h2{
-      margin: 0;
-      font-size: 20px;
-    }
-    .hint{
-      font-size: 13px;
-      color: var(--muted);
+      background: rgba(42,166,115,.12);
+      border: 1px solid rgba(42,166,115,.20);
+      color: var(--green);
+      font-weight: 700;
     }
 
     /* Skills */
-    .skills-grid{
-      display: grid;
-      gap: 14px;
-    }
-    .skill-row{
-      display: grid;
-      grid-template-columns: 140px 1fr 60px;
-      gap: 10px;
+    .skills{ display: grid; gap: 12px; }
+    .skill{
+      display:grid;
+      grid-template-columns: 140px 1fr 48px;
+      gap: 12px;
       align-items: center;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      transition: transform .15s ease, background .15s ease;
     }
-    .skill-row:hover{
-      transform: translateY(-2px);
-      background: rgba(31,157,99,.06);
-    }
-    .skill-name{ font-weight: 700; }
+    .skill-name{ font-weight: 700; color: var(--text); }
     .bar{
-      height: 10px;
+      height: 12px;
       border-radius: 999px;
-      background: #eaf7f0;
+      background: #eaf5ef;
+      border: 1px solid rgba(216,234,223,.9);
       overflow: hidden;
-      border: 1px solid rgba(31,157,99,.18);
     }
     .fill{
       height: 100%;
+      width: 0%;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--green), var(--green2));
-      transform-origin: left;
-      animation: grow 0.9s ease forwards;
+      background: linear-gradient(90deg, var(--green2), var(--green));
+      transition: width .9s ease;
     }
-    @keyframes grow{
-      from{ transform: scaleX(0.2); opacity: .6; }
-      to{ transform: scaleX(1); opacity: 1; }
+    .pct{
+      text-align: right;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
     }
-    .pct{ color: var(--muted); font-size: 13px; text-align: right; }
 
     /* Timeline */
-    .timeline{
-      position: relative;
-      padding-left: 22px;
-      display: grid;
-      gap: 14px;
-    }
+    .timeline{ position: relative; padding-left: 18px; display:grid; gap: 14px; }
     .timeline::before{
       content:"";
-      position:absolute;
-      left: 8px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: linear-gradient(var(--green), rgba(31,157,99,.15));
-      border-radius: 999px;
+      position:absolute; left: 6px; top: 6px; bottom: 6px;
+      width: 2px; background: var(--line);
     }
     .t-item{
       position: relative;
-      padding: 14px 14px 14px 16px;
-      border: 1px solid var(--line);
+      padding: 14px 14px 14px 14px;
       border-radius: 14px;
-      background: #fff;
+      border: 1px solid rgba(216,234,223,.9);
+      background: rgba(246,251,248,.55);
       transition: transform .15s ease, box-shadow .15s ease;
     }
     .t-item:hover{
       transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(15,23,42,.08);
+      box-shadow: 0 14px 28px rgba(22,74,50,.12);
     }
     .t-item::before{
       content:"";
-      position:absolute;
-      left: -22px;
-      top: 20px;
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: var(--green);
-      box-shadow: 0 0 0 5px rgba(31,157,99,.16);
+      position:absolute; left: -18px; top: 18px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green2), var(--green));
+      box-shadow: 0 0 0 5px rgba(42,166,115,.14);
     }
-    .t-top{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px 10px;
-      align-items: baseline;
-      justify-content: space-between;
-    }
-    .t-title{ margin:0; font-weight: 800; }
-    .t-time{
-      font-size: 13px;
-      color: var(--muted);
-      background: rgba(31,157,99,.08);
-      border: 1px solid rgba(31,157,99,.18);
-      padding: 4px 10px;
-      border-radius: 999px;
-    }
-    .t-desc{ margin: 8px 0 0; color: var(--muted); }
+    .t-top{ display:flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .t-role{ font-weight: 800; }
+    .t-time{ color: var(--muted); font-weight: 700; font-size: 13px; }
+    .t-desc{ margin: 8px 0 0; color: var(--muted); line-height: 1.7; }
 
     /* Projects */
-    .projects{
+    .grid{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
     .p-card{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
       padding: 16px;
-      box-shadow: 0 10px 18px rgba(15,23,42,.06);
+      border-radius: 16px;
+      border: 1px solid rgba(216,234,223,.9);
+      background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(246,251,248,.70));
+      box-shadow: 0 10px 26px rgba(22,74,50,.10);
       transition: transform .18s ease, box-shadow .18s ease;
-      display: grid;
-      gap: 10px;
-      min-height: 190px;
+      position: relative;
+      overflow: hidden;
+      min-height: 170px;
+    }
+    .p-card::after{
+      content:"";
+      position:absolute; right:-60px; top:-60px;
+      width: 140px; height: 140px; border-radius: 50%;
+      background: rgba(42,166,115,.12);
     }
     .p-card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 16px 30px rgba(15,23,42,.10);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(22,74,50,.14);
     }
-    .p-title{
-      margin: 0;
-      font-size: 16px;
-      font-weight: 900;
-    }
-    .p-meta{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .pill{
-      font-size: 12px;
-      color: #0b3b26;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.22);
-      padding: 4px 10px;
+    .p-title{ margin: 0 0 6px; font-size: 16px; font-weight: 900; }
+    .p-desc{ margin: 0 0 10px; color: var(--muted); line-height: 1.7; }
+    .p-role{
+      display:inline-flex;
+      gap: 8px; align-items:center;
+      font-size: 13px;
+      padding: 7px 10px;
       border-radius: 999px;
-    }
-    .p-desc{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .p-link{
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      transition: background .15s ease, transform .15s ease;
-    }
-    .p-link:hover{
-      background: rgba(31,157,99,.06);
-      transform: translateY(-1px);
-      color: var(--text);
+      background: rgba(31,122,90,.08);
+      border: 1px solid rgba(31,122,90,.12);
+      font-weight: 700;
+      color: var(--green);
     }
 
     /* Footer */
     footer{
-      margin-top: 26px;
+      margin-top: 18px;
       text-align: center;
       color: var(--muted);
       font-size: 13px;
     }
 
     /* Responsive */
-    @media (max-width: 900px){
-      .hero{ grid-template-columns: 1fr; }
-      .projects{ grid-template-columns: 1fr; }
-      .skill-row{ grid-template-columns: 120px 1fr 48px; }
-    }
     @media (max-width: 600px){
-      nav{ gap: 6px; }
-      nav a{ padding: 7px 8px; }
-      .skill-row{ grid-template-columns: 1fr; }
+      .hero{ grid-template-columns: 1fr; text-align: left; }
+      .avatar{ width: 120px; height: 120px; }
+      .nav{ gap: 8px; }
+      .skill{ grid-template-columns: 1fr; gap: 8px; }
       .pct{ text-align: left; }
-      .avatar{ aspect-ratio: 1 / 1; }
+      .grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
+  <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <span class="brand-dot"></span>
+        <span class="dot"></span>
         <span>施芊妤｜Resume</span>
       </div>
-
-      <nav>
+      <nav class="nav">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
@@ -382,219 +283,188 @@
         <a href="#contact">Contact</a>
       </nav>
     </div>
-  </div>
+  </header>
 
-  <main class="container">
-    <!-- HERO -->
-    <div class="hero">
-      <div class="card">
+  <main class="wrap">
+    <!-- Personal Info -->
+    <section class="hero" id="about">
+      <img class="avatar" src="半身照.png" alt="施芊妤 半身照" />
+      <div>
         <h1>施芊妤</h1>
         <p class="subtitle">
-          Medical / Hospital IT practice • Learning by doing • Green hospital style portfolio
+          醫院資訊/應用系統方向，喜歡把流程整理清楚，讓系統更穩、更好用。
+          目前在桃園醫院資訊室支援應用系統工作，也持續累積專案與實務經驗。
         </p>
 
-        <div class="badges">
-          <span class="badge">🏥 <strong>Hospital IT</strong> &nbsp;Practice</span>
-          <span class="badge">🧩 <strong>System</strong> &nbsp;Support</span>
-          <span class="badge">🌱 <strong>Innovation</strong> &nbsp;Mindset</span>
-        </div>
-
-        <section id="about">
-          <div class="section-title">
-            <h2>About Me</h2>
-            <div class="hint">Single page • simple & clean</div>
-          </div>
-          <div class="card" style="box-shadow:none; border:1px solid var(--line);">
-            <p style="margin:0; color:var(--muted);">
-              我喜歡把複雜的事情整理清楚，讓系統更好用、流程更順。  
-              目前累積醫院資訊室的實務經驗，也持續練習程式開發與專案協作。
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <div class="card profile">
-        <img class="avatar" src="半身照.png" alt="施芊妤 半身照" />
-
-        <div class="section-title" style="margin:0;">
-          <h2 id="contact">Contact</h2>
-          <div class="hint">Email required</div>
-        </div>
-
-        <div class="contact">
-          <a href="mailto:chienyu0304@gmail.com">
-            <span>📩 Email</span>
-            <small>chienyu0304@gmail.com</small>
-          </a>
-
-          <a href="https://instagram.com/chixiiyu" target="_blank" rel="noopener">
-            <span>📷 Instagram</span>
-            <small>@chixiiyu</small>
-          </a>
-
-          <!-- GitHub 你先用占位，之後知道帳號再改 -->
-          <a href="https://github.com/" target="_blank" rel="noopener">
-            <span>💻 GitHub</span>
-            <small>https://github.com/</small>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="section-title">
-        <h2>Skills</h2>
-        <div class="hint">Progress bars (Version A)</div>
-      </div>
-
-      <div class="card">
-        <div class="skills-grid">
-          <div class="skill-row">
-            <div class="skill-name">程式開發</div>
-            <div class="bar"><div class="fill" style="width:30%"></div></div>
-            <div class="pct">30%</div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill-name">醫院實務</div>
-            <div class="bar"><div class="fill" style="width:50%"></div></div>
-            <div class="pct">50%</div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill-name">創新應用</div>
-            <div class="bar"><div class="fill" style="width:70%"></div></div>
-            <div class="pct">70%</div>
-          </div>
+        <div class="chips">
+          <span class="chip"><b>Email</b> <span class="mono">chienyu0304@gmail.com</span></span>
+          <span class="chip"><b>GitHub</b> <span class="mono">github.com/ChienYuShih</span></span>
+          <span class="chip"><b>IG</b> <span class="mono">@chixiiyu</span></span>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
+    <!-- Skills -->
+    <section id="skills" class="card">
       <div class="section-title">
-        <h2>Experience</h2>
-        <div class="hint">Timeline style</div>
+        Skills <span class="badge">Progress Bars</span>
+      </div>
+
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-name">文件整理與流程</div>
+          <div class="bar"><div class="fill" data-pct="90"></div></div>
+          <div class="pct">90%</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">醫院資訊實務</div>
+          <div class="bar"><div class="fill" data-pct="85"></div></div>
+          <div class="pct">85%</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">溝通協作</div>
+          <div class="bar"><div class="fill" data-pct="80"></div></div>
+          <div class="pct">80%</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">專案管理</div>
+          <div class="bar"><div class="fill" data-pct="70"></div></div>
+          <div class="pct">70%</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">創新應用</div>
+          <div class="bar"><div class="fill" data-pct="65"></div></div>
+          <div class="pct">65%</div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">程式開發</div>
+          <div class="bar"><div class="fill" data-pct="60"></div></div>
+          <div class="pct">60%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="card">
+      <div class="section-title">
+        Experience <span class="badge">Timeline</span>
       </div>
 
       <div class="timeline">
         <div class="t-item">
           <div class="t-top">
-            <p class="t-title">家教老師</p>
-            <span class="t-time">2024/06 - 至今（大一後）</span>
+            <div class="t-role">劇本殺演員</div>
+            <div class="t-time">2021 – 2023（高中時期）</div>
           </div>
-          <p class="t-desc">主要指導：國小數學、國中與高中數學、社會。練習把觀念講清楚、用簡單方式帶學生理解。</p>
+          <p class="t-desc">演繹多位角色，並參與劇本編輯；練習臨場反應、表達與團隊協作。</p>
         </div>
 
         <div class="t-item">
           <div class="t-top">
-            <p class="t-title">桃園醫院 資訊室｜應用系統組 計時人員</p>
-            <span class="t-time">2025/07 - 至今（大一後）</span>
+            <div class="t-role">內湖高中流行音樂社 社長</div>
+            <div class="t-time">2022 – 2023（高中時期）</div>
           </div>
-          <p class="t-desc">協助院內應用系統相關工作與日常支援，累積醫院資訊環境的流程與實作經驗。</p>
+          <p class="t-desc">帶領社團與活動規劃，舉辦多場音樂表演；協調人力與排程，提升執行效率。</p>
         </div>
 
         <div class="t-item">
           <div class="t-top">
-            <p class="t-title">劇本殺演員｜角色演繹 / 劇本編輯</p>
-            <span class="t-time">2021 - 2023（高中）</span>
+            <div class="t-role">台大合唱團 團員（女中音低音聲部）</div>
+            <div class="t-time">2024（大一時期）</div>
           </div>
-          <p class="t-desc">演繹多位角色並參與劇本編輯，提升表達、臨場反應與團隊配合。</p>
+          <p class="t-desc">參與排練與演出，培養紀律與合作能力，學習在團隊中穩定輸出。</p>
         </div>
 
         <div class="t-item">
           <div class="t-top">
-            <p class="t-title">內湖高中｜流行音樂社 社長</p>
-            <span class="t-time">2022 - 2023（高中）</span>
+            <div class="t-role">家教老師</div>
+            <div class="t-time">2024/06 – 至今（大學）</div>
           </div>
-          <p class="t-desc">帶領社團舉辦多場音樂表演，學習活動規劃、溝通協調與團隊管理。</p>
+          <p class="t-desc">主要指導國小數學、國中/高中數學與社會；擅長拆解問題、建立學生理解流程。</p>
         </div>
 
         <div class="t-item">
           <div class="t-top">
-            <p class="t-title">台大合唱團｜女中音（低音聲部）</p>
-            <span class="t-time">2024（大一）</span>
+            <div class="t-role">桃園醫院 資訊室（應用系統組）計時人員</div>
+            <div class="t-time">2025/07 – 至今（大學）</div>
           </div>
-          <p class="t-desc">在團內擔任女中音之低音聲部，訓練穩定度、合作默契與舞台表現。</p>
+          <p class="t-desc">支援應用系統相關工作：協助需求整理、文件彙整、跨單位溝通與系統運作確認。</p>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
+    <!-- Projects -->
+    <section id="projects" class="card">
       <div class="section-title">
-        <h2>Projects</h2>
-        <div class="hint">Card layout + hover</div>
+        Projects <span class="badge">Cards</span>
       </div>
 
-      <div class="projects">
-        <div class="p-card">
+      <div class="grid">
+        <article class="p-card">
           <h3 class="p-title">桃園醫院資安審核</h3>
-          <div class="p-meta">
-            <span class="pill">Role：文件整理</span>
-            <span class="pill">Role：現場應答</span>
-          </div>
           <p class="p-desc">
-            協助醫院年度資安評鑑：整理相關文件，並在評鑑當天擔任政風面應答人員。
+            協助年度資安評鑑文件整理，並在評鑑當天擔任政風面應答人員，確保資料一致、回覆清楚。
           </p>
-          <a class="p-link" href="#" onclick="return false;">
-            <span>🔗 Link (optional)</span>
-            <span>→</span>
-          </a>
-        </div>
+          <span class="p-role">角色：文件整理 / 現場應答</span>
+        </article>
 
-        <div class="p-card">
+        <article class="p-card">
           <h3 class="p-title">桃園醫院資訊改動案</h3>
-          <div class="p-meta">
-            <span class="pill">Role：會議紀錄</span>
-            <span class="pill">Role：廠商對接</span>
-          </div>
           <p class="p-desc">
-            協助院內各單位資訊改動需求，負責會議紀錄並與廠商對接，追蹤事項進度。
+            面對各單位資訊改動需求，負責會議紀錄、需求彙整與追蹤，並與廠商對接確認交付內容。
           </p>
-          <a class="p-link" href="#" onclick="return false;">
-            <span>🔗 Link (optional)</span>
-            <span>→</span>
-          </a>
-        </div>
+          <span class="p-role">角色：會議紀錄 / 廠商對接</span>
+        </article>
 
-        <div class="p-card">
+        <article class="p-card">
           <h3 class="p-title">桃園醫院新診區建設</h3>
-          <div class="p-meta">
-            <span class="pill">Role：系統檢查</span>
-            <span class="pill">Role：現場測試</span>
-          </div>
           <p class="p-desc">
-            協助新診區啟用前檢查：確認每個診間的資訊系統運作正常，排除基本問題。
+            新診區建置期間，協助檢查各診間資訊系統是否正常運作（設備、登入、系統流程與基本連線）。
           </p>
-          <a class="p-link" href="#" onclick="return false;">
-            <span>🔗 Link (optional)</span>
-            <span>→</span>
-          </a>
-        </div>
+          <span class="p-role">角色：系統檢查 / 問題回報</span>
+        </article>
       </div>
     </section>
 
-    <footer>
-      © <span id="year"></span> 施芊妤 • Built with HTML/CSS • GitHub Pages
-    </footer>
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <div class="section-title">
+        Contact <span class="badge">Email Required</span>
+      </div>
+      <p style="margin:0; color: var(--muted); line-height:1.8;">
+        Email：<a href="mailto:chienyu0304@gmail.com">chienyu0304@gmail.com</a><br/>
+        GitHub：<a href="https://github.com/ChienYuShih" target="_blank" rel="noreferrer">github.com/ChienYuShih</a><br/>
+        IG：<a href="https://www.instagram.com/chixiiyu/" target="_blank" rel="noreferrer">@chixiiyu</a>
+      </p>
+    </section>
+
+    <footer>© 2025 施芊妤</footer>
   </main>
 
   <script>
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // skills progress animation when section appears
+    const fills = document.querySelectorAll(".fill");
+    const skillsSection = document.querySelector("#skills");
 
-    // Smooth scroll fallback + small highlight
-    document.querySelectorAll('nav a[href^="#"]').forEach(a => {
-      a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href");
-        const target = document.querySelector(id);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+    const run = () => {
+      fills.forEach(f => {
+        const pct = f.getAttribute("data-pct") || "0";
+        f.style.width = pct + "%";
       });
-    });
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) run();
+      });
+    }, { threshold: 0.35 });
+
+    io.observe(skillsSection);
   </script>
 </body>
 </html>
