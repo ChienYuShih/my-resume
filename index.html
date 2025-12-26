@@ -7,6 +7,26 @@
   .skill { margin: 12px 0; max-width: 420px; }
   .bar { background: #eee; border-radius: 999px; height: 12px; overflow: hidden; }
   .fill { height: 100%; border-radius: 999px; transition: width .6s ease; background: #4a90e2; }
+  .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: default;
+}
+
+.tag:hover {
+  transform: scale(1.1);
+  background-color: #4a90e2;
+  color: #fff;
+}
 </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,28 +50,16 @@
     <p>這裡之後寫你的簡介</p>
   </section>
 
-  <section id="skills">
+ <section id="skills">
   <h2>Skills</h2>
 
-  <div class="skill">
-    <p>HTML</p>
-    <div class="bar">
-      <div class="fill" style="width: 80%"></div>
-    </div>
-  </div>
-
-  <div class="skill">
-    <p>CSS</p>
-    <div class="bar">
-      <div class="fill" style="width: 70%"></div>
-    </div>
-  </div>
-
-  <div class="skill">
-    <p>Java</p>
-    <div class="bar">
-      <div class="fill" style="width: 60%"></div>
-    </div>
+  <div class="tags">
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag">Java</span>
+    <span class="tag">Communication</span>
+    <span class="tag">Teamwork</span>
+    <span class="tag">Problem Solving</span>
   </div>
 </section>
 
